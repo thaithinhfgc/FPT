@@ -1,0 +1,15 @@
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.deps.json
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.runtimeconfig.json
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.dll
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\ref\Data.dll
+C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.pdb
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.dll
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\ref\Data.dll
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.pdb
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
