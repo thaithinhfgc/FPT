@@ -1,6 +1,8 @@
+using Data;
 using Data.DataAccess;
 using Data.DataAccess.Interface;
 using Data.Database;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +16,7 @@ using Service;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,6 +44,8 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            ValidatorOptions.Global.LanguageManager = new CustomValidator();
+            ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("en");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

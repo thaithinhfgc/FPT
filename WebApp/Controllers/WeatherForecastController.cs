@@ -35,7 +35,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [Route("user")]
-        public ObjectResult CreateNewUser([FromBody] CreateUserDTO input)
+        public IActionResult CreateNewUser([FromBody] CreateUserDTO input)
         {
             var res = new ServerResponse<User>();
             ValidationResult result = new CreateUserDTOValidator().Validate(input);
@@ -46,6 +46,12 @@ namespace WebApp.Controllers
                 return new BadRequestObjectResult(res.getResponse());
             }
 
+            var _user = userService.GetUserById(input.Id);
+            if (_user != null)
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.ERROR_EXISTED, "User ID");
+                return new BadRequestObjectResult(res.getResponse());
+            }
             var user = new User();
             user.Id = input.Id;
             user.Email = input.Email;
@@ -53,7 +59,8 @@ namespace WebApp.Controllers
             user.Password = input.Password;
 
             var newUser = userService.CreateUser(user);
-            return Ok(newUser);
+            res.data = newUser;
+            return new ObjectResult(res.getResponse());
         }
 
     }

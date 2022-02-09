@@ -12,5 +12,7 @@ namespace Service.Interface
     {
         public List<User> GetUsers();
         public User CreateUser(User newUser);
+
+        public User GetUserById(string Id);
     }
 }

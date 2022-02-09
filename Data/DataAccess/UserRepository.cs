@@ -24,5 +24,11 @@ namespace Data.DataAccess
             this.context.SaveChanges();
             return newUser;
         }
+
+        public User GetUserById(string Id)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Id.Equals(Id));
+            return user;
+        }
     }
 }

@@ -28,5 +28,10 @@ namespace Service
         {
             return userRepository.CreateUser(newUser);
         }
+
+        public User GetUserById(string Id)
+        {
+            return userRepository.GetUserById(Id);
+        }
     }
 }
