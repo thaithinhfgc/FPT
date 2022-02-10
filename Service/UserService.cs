@@ -33,5 +33,10 @@ namespace Service
         {
             return userRepository.GetUserById(Id);
         }
+
+        public User GetUserByCode(string UserCode)
+        {
+            return userRepository.GetUserByCode(UserCode);
+        }
     }
 }

@@ -7,19 +7,43 @@ using System.Threading.Tasks;
 
 namespace Data.Model
 {
+    public enum UserRole
+    {
+        STUDENT = 1,
+        LECTURER = 2,
+    }
+
+    public enum UserStatus
+    {
+        ACTIVE = 1,
+        INACTIVE = 2
+    }
     public class User
     {
         [Key]
         [Required]
+        [StringLength(40)]
         public string Id { get; set; }
-        [Required]
-
+        [StringLength(30)]
         public string Name { get; set; }
         [Required]
-
-        public string Password { get; set; }
-        [Required]
-
+        [StringLength(255)]
         public string Email { get; set; }
+        [StringLength(255)]
+        public string Password { get; set; }
+        [StringLength(30)]
+        public string UserCode { get; set; }
+        [Required]
+        public UserStatus Status { get; set; }
+        [Required]
+        public UserRole Role { get; set; }
+        [StringLength(30)]
+        public string GoogleId { get; set; }
+        [StringLength(20)]
+        public string Phone { get; set; }
+        public string Avatar { get; set; }
+        public string CV { get; set; }
+        [Required]
+        public DateTime CreateDate { get; set; }
     }
 }

@@ -9,20 +9,22 @@ namespace Data.DTO
 {
     public class CreateUserDTO
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
+        public string UserCode { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+
     }
 
     public class CreateUserDTOValidator : AbstractValidator<CreateUserDTO>
     {
         public CreateUserDTOValidator()
         {
-            RuleFor(x => x.Id).NotEmpty().NotNull().Length(5, 20);
-            RuleFor(x => x.Name).NotEmpty().NotNull().Length(5, 20);
-            RuleFor(x => x.Password).NotEmpty().NotNull().Length(5, 20);
-            RuleFor(x => x.Email).NotEmpty().NotNull().Length(5, 20).EmailAddress();
+            RuleFor(x => x.UserCode).NotEmpty().NotNull().Length(5, 30);
+            RuleFor(x => x.Email).NotEmpty().NotNull().Length(5, 255).EmailAddress();
+            RuleFor(x => x.Password).NotEmpty().NotNull().Length(5, 30);
+            RuleFor(x => x.ConfirmPassword).NotEmpty().NotNull().Length(5, 30).Equal(x => x.Password);
+
         }
     }
 }

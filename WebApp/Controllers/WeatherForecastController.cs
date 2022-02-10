@@ -46,17 +46,20 @@ namespace WebApp.Controllers
                 return new BadRequestObjectResult(res.getResponse());
             }
 
-            var _user = userService.GetUserById(input.Id);
+            var _user = userService.GetUserByCode(input.UserCode);
             if (_user != null)
             {
-                res.setErrorMessage(CustomValidator.ErrorMessageKey.ERROR_EXISTED, "User ID");
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.ERROR_EXISTED, "User Code");
                 return new BadRequestObjectResult(res.getResponse());
             }
             var user = new User();
-            user.Id = input.Id;
+            user.Id = Guid.NewGuid().ToString();
+            user.UserCode = input.UserCode;
             user.Email = input.Email;
-            user.Name = input.Name;
             user.Password = input.Password;
+            user.Role = UserRole.STUDENT;
+            user.Status = UserStatus.ACTIVE;
+            user.CreateDate = DateTime.Now;
 
             var newUser = userService.CreateUser(user);
             res.data = newUser;

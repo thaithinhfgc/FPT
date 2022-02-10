@@ -30,5 +30,11 @@ namespace Data.DataAccess
             var user = context.Users.FirstOrDefault(x => x.Id.Equals(Id));
             return user;
         }
+
+        public User GetUserByCode(string UserCode)
+        {
+            var user = context.Users.FirstOrDefault(x => x.UserCode.Equals(UserCode));
+            return user;
+        }
     }
 }
