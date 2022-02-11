@@ -1,5 +1,5 @@
 ﻿using Data.DTO;
-using Data.Model;
+using Data.Model.UserModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +12,9 @@ namespace Data.DataAccess.Interface
     {
 
         public List<User> GetUsers();
-        public User CreateUser(User newUser);
         public User GetUserById(string Id);
         public User GetUserByCode(string Id);
+        public User GetCurrentUser();
+        public User UpdateCurrentUser(User user);
     }
 }

@@ -24,7 +24,6 @@ C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.IdentityM
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -58,3 +57,4 @@ C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.genruntimeco
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Humanizer.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
