@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Model
+namespace Data.Model.UserModule
 {
     public enum UserRole
     {
         STUDENT = 1,
         LECTURER = 2,
+        ADMIN = 3
     }
 
     public enum UserStatus

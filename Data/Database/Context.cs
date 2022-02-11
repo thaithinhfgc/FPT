@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using Data.Model.BlogModule;
+using Data.Model.UserModule;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,8 @@ namespace Data.Database
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=FPT;Uid=sa;Pwd=123;");
-        }
+
     }
 }
