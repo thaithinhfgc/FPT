@@ -48,6 +48,12 @@ namespace WebApp
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
 
+            services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<ITagService, TagService>();
+
+            services.AddScoped<IBlogTagRepository, BlogTagRepository>();
+            services.AddScoped<IBlogTagService, BlogTagService>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>
                 {
