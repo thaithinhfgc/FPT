@@ -11,9 +11,10 @@ namespace Data.Model.BlogModule
 {
     public enum BlogStatus
     {
-        WAIT = 1,
-        APPROVE = 2,
-        DENY = 3
+        DRAFT = 1,
+        WAIT = 2,
+        APPROVE = 3,
+        DENY = 4
     }
     public class Blog
     {
@@ -24,14 +25,19 @@ namespace Data.Model.BlogModule
         [StringLength(100)]
         public string Title { get; set; }
         public string Content { get; set; }
-
+        [Required]
         [ForeignKey("StudentId")]
         public string StudentId { get; set; }
         public User Student { get; set; }
+        [Required]
+        [ForeignKey("CategoryId")]
+        public string CategoryId { get; set; }
+        public Category Category { get; set; }
 
         [ForeignKey("AdminId")]
         public string AdminId { get; set; }
         public User Admin { get; set; }
+        [Required]
         public DateTime CreateDate { get; set; }
         public BlogStatus Status { get; set; }
         public int Vote { get; set; }

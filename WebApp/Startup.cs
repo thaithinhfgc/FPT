@@ -54,6 +54,9 @@ namespace WebApp
             services.AddScoped<IBlogTagRepository, BlogTagRepository>();
             services.AddScoped<IBlogTagService, BlogTagService>();
 
+            services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddScoped<IBlogService, BlogService>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>
                 {
