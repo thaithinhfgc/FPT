@@ -51,6 +51,7 @@ namespace WebApp.Controllers
             user.CreateDate = DateTime.Now;
 
             var newUser = authService.CreateUser(user);
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_REGISTER_SUCCESS);
             res.data = newUser;
             return new ObjectResult(res.getResponse());
         }
@@ -84,6 +85,7 @@ namespace WebApp.Controllers
             string token = authService.GenerateToken(user);
 
             res.data = token;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_LOGIN_SUCCESS);
             return new ObjectResult(res.getResponse());
         }
     }

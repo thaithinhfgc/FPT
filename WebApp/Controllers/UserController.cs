@@ -65,6 +65,7 @@ namespace WebApp.Controllers
             user.Phone = input.Phone;
             userService.UpdateCurrentUser(user);
             res.data = user;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Profile");
             return new ObjectResult(res.getResponse());
         }
 

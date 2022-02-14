@@ -34,7 +34,7 @@ namespace Data.DataAccess
             List<BlogTag> blogTags = context.BlogTags.Where(x => x.BlogId.Equals(blogId)).ToList();
             foreach (BlogTag blogTag in blogTags)
             {
-                tags.Add(context.Tags.FirstOrDefault(x => x.Id.Equals(blogTag.Id)));
+                tags.Add(context.Tags.FirstOrDefault(x => x.Id.Equals(blogTag.TagId)));
             }
             return tags;
         }

@@ -69,6 +69,7 @@ namespace WebApp.Controllers
             tagService.CreateTag(newTag);
 
             res.data = newTag;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_ADD_SUCCESS, "Tag");
             return new ObjectResult(res.getResponse());
         }
 

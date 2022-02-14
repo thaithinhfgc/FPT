@@ -64,6 +64,7 @@ namespace WebApp.Controllers
 
             categoryService.CreateCategory(newCategory);
             res.data = newCategory;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_ADD_SUCCESS, "Category");
             return new ObjectResult(res.getResponse());
         }
 
@@ -94,6 +95,7 @@ namespace WebApp.Controllers
             categoryService.UpdateCategory(category);
 
             res.data = category;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Category");
             return new ObjectResult(res.getResponse());
 
         }
