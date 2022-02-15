@@ -57,6 +57,12 @@ namespace WebApp
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IBlogService, BlogService>();
 
+            services.AddScoped<IVoteRepository, VoteRepository>();
+            services.AddScoped<IVoteService, VoteService>();
+
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentService, CommentService>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>
                 {

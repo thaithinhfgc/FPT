@@ -21,14 +21,19 @@ namespace Service
             blogTagRepository.AddBlogTag(blogTag);
         }
 
-        public List<Tag> GetBlogTag(string blogId)
+        public List<Tag> GetBlogTags(string blogId)
         {
-            return blogTagRepository.GetBlogTag(blogId);
+            return blogTagRepository.GetBlogTags(blogId);
         }
 
         public void RemoveBlogTag(BlogTag blogTag)
         {
             blogTagRepository.RemoveBlogTag(blogTag);
+        }
+
+        public BlogTag GetBlogTag(string blogId, string tagId)
+        {
+            return blogTagRepository.GetBlogTag(blogId, tagId);
         }
     }
 }

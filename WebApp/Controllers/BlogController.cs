@@ -95,7 +95,7 @@ namespace WebApp.Controllers
             draft.Category = category;
             draft.CategoryId = category.Id;
 
-            blogService.SaveDraft(draft);
+            blogService.UpdateBlog(draft);
             res.data = draft;
             res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS);
             return new ObjectResult(res.getResponse());
@@ -147,8 +147,76 @@ namespace WebApp.Controllers
             }
 
             draft.Status = BlogStatus.WAIT;
+            blogService.UpdateBlog(draft);
             res.data = draft;
             res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS);
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpGet]
+        [Route("wait")]
+        [Authorize(Roles = "ADMIN")]
+        public IActionResult GetWaitBlogs()
+        {
+            var res = new ServerResponse<List<Blog>>();
+            var blogs = blogService.GetWaitBlogs();
+            res.data = blogs;
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpPut]
+        [Route("approve")]
+        [Authorize(Roles = "ADMIN")]
+        public IActionResult ApproveBlog([FromBody] ApproveBlogDTO input)
+        {
+            var res = new ServerResponse<Blog>();
+            ValidationResult result = new ApproveBlogDTOValidator().Validate(input);
+
+            if (!result.IsValid)
+            {
+                res.mapDetails(result);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            var blog = blogService.GetWaitBlog(input.Id);
+            if (blog == null)
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.ERROR_NOT_FOUND, "Blog");
+                return new NotFoundObjectResult(res.getResponse());
+            }
+
+            blog.Status = BlogStatus.APPROVE;
+            blogService.UpdateBlog(blog);
+            res.data = blog;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Blog");
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpPut]
+        [Route("deny")]
+        [Authorize(Roles = "ADMIN")]
+        public IActionResult DenyBlog([FromBody] ApproveBlogDTO input)
+        {
+            var res = new ServerResponse<Blog>();
+            ValidationResult result = new ApproveBlogDTOValidator().Validate(input);
+
+            if (!result.IsValid)
+            {
+                res.mapDetails(result);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            var blog = blogService.GetWaitBlog(input.Id);
+            if (blog == null)
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.ERROR_NOT_FOUND, "Blog");
+                return new NotFoundObjectResult(res.getResponse());
+            }
+
+            blog.Status = BlogStatus.DENY;
+            blogService.UpdateBlog(blog);
+            res.data = blog;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Blog");
             return new ObjectResult(res.getResponse());
         }
     }

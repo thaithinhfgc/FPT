@@ -28,7 +28,7 @@ namespace Data.DataAccess
             context.SaveChanges();
         }
 
-        public List<Tag> GetBlogTag(string blogId)
+        public List<Tag> GetBlogTags(string blogId)
         {
             List<Tag> tags = new List<Tag>();
             List<BlogTag> blogTags = context.BlogTags.Where(x => x.BlogId.Equals(blogId)).ToList();
@@ -37,6 +37,12 @@ namespace Data.DataAccess
                 tags.Add(context.Tags.FirstOrDefault(x => x.Id.Equals(blogTag.TagId)));
             }
             return tags;
+        }
+
+        public BlogTag GetBlogTag(string blogId, string tagId)
+        {
+            var blogTag = context.BlogTags.FirstOrDefault(x => x.BlogId.Equals(blogId) && x.Equals(tagId));
+            return blogTag;
         }
     }
 }

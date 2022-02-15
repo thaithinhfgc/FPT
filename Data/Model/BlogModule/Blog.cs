@@ -28,15 +28,15 @@ namespace Data.Model.BlogModule
         [Required]
         [ForeignKey("StudentId")]
         public string StudentId { get; set; }
-        public User Student { get; set; }
+        public virtual User Student { get; set; }
         [Required]
         [ForeignKey("CategoryId")]
         public string CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         [ForeignKey("AdminId")]
         public string AdminId { get; set; }
-        public User Admin { get; set; }
+        public virtual User Admin { get; set; }
         [Required]
         public DateTime CreateDate { get; set; }
         public BlogStatus Status { get; set; }
