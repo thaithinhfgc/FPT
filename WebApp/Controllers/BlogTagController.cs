@@ -41,7 +41,7 @@ namespace WebApp.Controllers
                 return new BadRequestObjectResult(res.getResponse());
             }
 
-            var tags = blogTagService.GetBlogTag(input.BlogId);
+            var tags = blogTagService.GetBlogTags(input.BlogId);
             res.data = tags;
             return new ObjectResult(res.getResponse());
 

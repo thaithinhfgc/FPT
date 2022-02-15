@@ -11,6 +11,7 @@ namespace Service.Interface
     {
         public void AddBlogTag(BlogTag blogTag);
         public void RemoveBlogTag(BlogTag blogTag);
-        public List<Tag> GetBlogTag(string blogId);
+        public List<Tag> GetBlogTags(string blogId);
+        public BlogTag GetBlogTag(string blogId, string tagId);
     }
 }

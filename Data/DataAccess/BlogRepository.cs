@@ -42,9 +42,9 @@ namespace Data.DataAccess
             return drafts;
         }
 
-        public void SaveDraft(Blog draft)
+        public void UpdateBlog(Blog blog)
         {
-            context.Blogs.Update(draft);
+            context.Blogs.Update(blog);
             context.SaveChanges();
         }
 
@@ -53,6 +53,30 @@ namespace Data.DataAccess
             context.Blogs.Update(draft);
             context.SaveChanges();
             return draft;
+        }
+
+        public List<Blog> GetBlogs()
+        {
+            var blogs = context.Blogs.Where(x => x.Status == BlogStatus.APPROVE).ToList();
+            return blogs;
+        }
+
+        public Blog GetBlog(string blogId)
+        {
+            var blog = context.Blogs.FirstOrDefault(x => x.Id.Equals(blogId) && x.Status == BlogStatus.APPROVE);
+            return blog;
+        }
+
+        public List<Blog> GetWaitBlogs()
+        {
+            var blogs = context.Blogs.Where(x => x.Status == BlogStatus.WAIT).ToList();
+            return blogs;
+        }
+
+        public Blog GetWaitBlog(string blogId)
+        {
+            var blog = context.Blogs.FirstOrDefault(x => x.Id == blogId && x.Status == BlogStatus.WAIT);
+            return blog;
         }
     }
 }

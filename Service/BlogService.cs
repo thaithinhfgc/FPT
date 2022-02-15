@@ -31,9 +31,9 @@ namespace Service
             return blogRepository.GetDrafts();
         }
 
-        public void SaveDraft(Blog draft)
+        public void UpdateBlog(Blog blog)
         {
-            blogRepository.SaveDraft(draft);
+            blogRepository.UpdateBlog(blog);
         }
 
         public Blog SubmitBlog(Blog draft)
@@ -43,6 +43,26 @@ namespace Service
         public Blog GetDraft(string DraftId)
         {
             return blogRepository.GetDraft(DraftId);
+        }
+
+        public List<Blog> GetBlogs()
+        {
+            return blogRepository.GetBlogs();
+        }
+
+        public Blog GetBlog(string BlogId)
+        {
+            return blogRepository.GetBlog(BlogId);
+        }
+
+        public List<Blog> GetWaitBlogs()
+        {
+            return blogRepository.GetWaitBlogs();
+        }
+
+        public Blog GetWaitBlog(string blogId)
+        {
+            return blogRepository.GetWaitBlog(blogId);
         }
     }
 }
