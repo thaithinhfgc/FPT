@@ -23,6 +23,8 @@ namespace Data
             public const string ERROR_CART_EMPTY = "ERROR_CART_EMPTY";
             public const string ERROR_INVALID_ORDER = "ERROR_INVALID_ORDER";
             public const string ERROR_INVALID_QUANTITY = "ERROR_INVALID_QUANTITY";
+            public const string ERROR_START_DATE = "ERROR_START_DATE";
+            public const string ERROR_END_DATE = "ERROR_END_DATE";
 
         }
 
@@ -58,6 +60,8 @@ namespace Data
             AddTranslation("en", ErrorMessageKey.ERROR_CART_EMPTY, "cart is empty");
             AddTranslation("en", ErrorMessageKey.ERROR_INVALID_ORDER, "order is invalid");
             AddTranslation("en", ErrorMessageKey.ERROR_INVALID_QUANTITY, "have only");
+            AddTranslation("en", ErrorMessageKey.ERROR_START_DATE, "Start Date should be at least tomorow");
+            AddTranslation("en", ErrorMessageKey.ERROR_END_DATE, "End Date should be equal or greater than Start Date");
 
 
             // Success message

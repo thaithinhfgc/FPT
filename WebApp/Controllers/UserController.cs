@@ -1,12 +1,12 @@
 ﻿using Data;
-using Data.DTO.UserDTO;
+using Data.DTO.UserModule.UserDTO;
 using Data.Model.UserModule;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service;
-using Service.Interface;
+using Service.Interface.UserModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;

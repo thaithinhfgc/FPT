@@ -185,6 +185,69 @@ namespace Data.Migrations
                     b.ToTable("Votes");
                 });
 
+            modelBuilder.Entity("Data.Model.EventModule.Event", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("AdminId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NumOfPaticipant")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Data.Model.EventModule.EventParticipant", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EventId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("PaticipantId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("PaticipantId");
+
+                    b.ToTable("EventParticipants");
+                });
+
             modelBuilder.Entity("Data.Model.UserModule.User", b =>
                 {
                     b.Property<string>("Id")
@@ -310,6 +373,30 @@ namespace Data.Migrations
                     b.Navigation("Blog");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Data.Model.EventModule.Event", b =>
+                {
+                    b.HasOne("Data.Model.UserModule.User", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId");
+
+                    b.Navigation("Admin");
+                });
+
+            modelBuilder.Entity("Data.Model.EventModule.EventParticipant", b =>
+                {
+                    b.HasOne("Data.Model.EventModule.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId");
+
+                    b.HasOne("Data.Model.UserModule.User", "Paticipant")
+                        .WithMany()
+                        .HasForeignKey("PaticipantId");
+
+                    b.Navigation("Event");
+
+                    b.Navigation("Paticipant");
                 });
 #pragma warning restore 612, 618
         }

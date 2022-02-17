@@ -1,12 +1,12 @@
 ﻿
 using Data;
-using Data.DTO.BlogTagDTO;
+using Data.DTO.BlogModule.BlogTagDTO;
 using Data.Model.BlogModule;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Service.Interface;
+using Service.Interface.BlogModule;
 using System;
 using System.Collections.Generic;
 
