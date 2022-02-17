@@ -1,11 +1,12 @@
 ﻿using Data;
-using Data.DTO.UserDTO;
+using Data.DTO.UserModule.UserDTO;
 using Data.Model.UserModule;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Service.Interface;
+using Service.Interface.AuthService;
+using Service.Interface.UserModule;
 using System;
 
 namespace WebApp.Controllers

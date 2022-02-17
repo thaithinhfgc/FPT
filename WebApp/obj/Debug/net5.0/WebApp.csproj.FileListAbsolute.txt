@@ -12,9 +12,13 @@ C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.runtimeconfi
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\ref\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.pdb
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Humanizer.dll
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
@@ -54,7 +58,3 @@ C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\ref\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.pdb
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.genruntimeconfig.cache
-C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\FluentValidation.dll
-C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Humanizer.dll
-C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

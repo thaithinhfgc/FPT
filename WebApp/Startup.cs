@@ -1,6 +1,12 @@
 using Data;
-using Data.DataAccess;
-using Data.DataAccess.Interface;
+using Data.DataAccess.Implement.AuthModule;
+using Data.DataAccess.Implement.BlogModule;
+using Data.DataAccess.Implement.EventModule;
+using Data.DataAccess.Implement.UserModule;
+using Data.DataAccess.Interface.AuthModule;
+using Data.DataAccess.Interface.BlogModule;
+using Data.DataAccess.Interface.EventModule;
+using Data.DataAccess.Interface.UserModule;
 using Data.Database;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,8 +18,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Service;
-using Service.Interface;
+using Service.Implement.AuthModule;
+using Service.Implement.BlogModule;
+using Service.Implement.EventModule;
+using Service.Implement.UserModule;
+using Service.Interface.AuthService;
+using Service.Interface.BlogModule;
+using Service.Interface.EventModule;
+using Service.Interface.UserModule;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -62,6 +74,12 @@ namespace WebApp
 
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<ICommentService, CommentService>();
+
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IEventService, EventService>();
+
+            services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
+            services.AddScoped<IEventParticipantService, EventParticipantService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>

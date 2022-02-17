@@ -1,11 +1,12 @@
 ﻿using Data;
-using Data.DTO.VoteDTO;
+using Data.DTO.BlogModule.VoteDTO;
 using Data.Model.BlogModule;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Service.Interface;
+using Service.Interface.BlogModule;
+using Service.Interface.UserModule;
 
 namespace WebApp.Controllers
 {

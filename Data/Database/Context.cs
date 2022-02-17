@@ -1,4 +1,5 @@
 ﻿using Data.Model.BlogModule;
+using Data.Model.EventModule;
 using Data.Model.UserModule;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,5 +25,7 @@ namespace Data.Database
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventParticipant> EventParticipants { get; set; }
     }
 }
