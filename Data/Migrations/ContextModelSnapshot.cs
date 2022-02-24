@@ -248,6 +248,84 @@ namespace Data.Migrations
                     b.ToTable("EventParticipants");
                 });
 
+            modelBuilder.Entity("Data.Model.JobModule.ApplyJob", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("ApplicantId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("JobId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicantId");
+
+                    b.HasIndex("JobId");
+
+                    b.ToTable("ApplyJobs");
+                });
+
+            modelBuilder.Entity("Data.Model.JobModule.Job", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("BusinessId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("JobDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobRequirement")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Major")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NumOfApplicant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TimeOfWork")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("Data.Model.UserModule.User", b =>
                 {
                     b.Property<string>("Id")
@@ -397,6 +475,30 @@ namespace Data.Migrations
                     b.Navigation("Event");
 
                     b.Navigation("Paticipant");
+                });
+
+            modelBuilder.Entity("Data.Model.JobModule.ApplyJob", b =>
+                {
+                    b.HasOne("Data.Model.UserModule.User", "Applicant")
+                        .WithMany()
+                        .HasForeignKey("ApplicantId");
+
+                    b.HasOne("Data.Model.JobModule.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobId");
+
+                    b.Navigation("Applicant");
+
+                    b.Navigation("Job");
+                });
+
+            modelBuilder.Entity("Data.Model.JobModule.Job", b =>
+                {
+                    b.HasOne("Data.Model.UserModule.User", "Business")
+                        .WithMany()
+                        .HasForeignKey("BusinessId");
+
+                    b.Navigation("Business");
                 });
 #pragma warning restore 612, 618
         }

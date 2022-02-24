@@ -28,7 +28,7 @@ namespace Service.Implement.EventModule
             throw new NotImplementedException();
         }
 
-        public List<EventParticipant> GetEventParticipantByUser(string eventId)
+        public List<Event> GetEventParticipantByUser(string eventId)
         {
             throw new NotImplementedException();
         }

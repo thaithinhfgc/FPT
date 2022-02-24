@@ -35,9 +35,39 @@ namespace Data.DataAccess.Implement.EventModule
             return events;
         }
 
+        public List<Event> GetUpComingEvents()
+        {
+            var events = context.Events.Where(x => x.Status == EventStatus.UPCOMING).ToList();
+            return events;
+        }
+
         public void UpdateEvent(Event @event)
         {
             context.Events.Update(@event);
+            context.SaveChanges();
+        }
+
+        public void UpdateEventStatus()
+        {
+            var events = context.Events.ToList();
+            var now = DateTime.Now;
+            foreach (var @event in events)
+            {
+                if (@event.Status == EventStatus.UPCOMING)
+                {
+                    if (@event.StartDate <= now && @event.EndDate > now)
+                    {
+                        @event.Status = EventStatus.ONGOING;
+                    }
+                }
+                if (@event.Status == EventStatus.ONGOING)
+                {
+                    if (@event.EndDate <= now)
+                    {
+                        @event.Status = EventStatus.COMPLETE;
+                    }
+                }
+            }
             context.SaveChanges();
         }
     }

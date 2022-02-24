@@ -1,11 +1,14 @@
 using Data;
+using Data.CronJob;
 using Data.DataAccess.Implement.AuthModule;
 using Data.DataAccess.Implement.BlogModule;
 using Data.DataAccess.Implement.EventModule;
+using Data.DataAccess.Implement.JobModule;
 using Data.DataAccess.Implement.UserModule;
 using Data.DataAccess.Interface.AuthModule;
 using Data.DataAccess.Interface.BlogModule;
 using Data.DataAccess.Interface.EventModule;
+using Data.DataAccess.Interface.JobModule;
 using Data.DataAccess.Interface.UserModule;
 using Data.Database;
 using FluentValidation;
@@ -18,13 +21,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Service.CronJob;
 using Service.Implement.AuthModule;
 using Service.Implement.BlogModule;
 using Service.Implement.EventModule;
+using Service.Implement.JobModule;
 using Service.Implement.UserModule;
 using Service.Interface.AuthService;
 using Service.Interface.BlogModule;
 using Service.Interface.EventModule;
+using Service.Interface.JobModule;
 using Service.Interface.UserModule;
 using System;
 using System.Collections.Generic;
@@ -81,6 +87,18 @@ namespace WebApp
             services.AddScoped<IEventParticipantRepository, EventParticipantRepository>();
             services.AddScoped<IEventParticipantService, EventParticipantService>();
 
+            services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<IJobService, JobService>();
+
+            services.AddScoped<IApplyJobRepository, ApplyJobRepository>();
+            services.AddScoped<IApplyJobService, ApplyJobService>();
+
+            services.AddCronJob<UpdateEventStatusJob>(c =>
+            {
+                c.TimeZoneInfo = TimeZoneInfo.Local;
+                c.CronExpression = "* * * * *";
+            });
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(option =>
                 {
@@ -96,6 +114,8 @@ namespace WebApp
                     };
                 });
             services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

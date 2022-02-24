@@ -8,8 +8,8 @@ C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.runtimeconfig.de
 C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.dll
 C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\ref\Data.dll
 C:\Users\ACER\source\repos\Solution6\Data\bin\Debug\net5.0\Data.pdb
+C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
 C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.dll
 C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\ref\Data.dll
 C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.pdb
 C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
-C:\Users\ACER\source\repos\Solution6\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache

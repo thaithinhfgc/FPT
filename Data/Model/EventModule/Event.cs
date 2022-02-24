@@ -11,7 +11,7 @@ namespace Data.Model.EventModule
 {
     public enum EventStatus
     {
-        UPCOMMING = 1,
+        UPCOMING = 1,
         ONGOING = 2,
         COMPLETE = 3,
         CANCEL = 4,

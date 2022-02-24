@@ -13,5 +13,7 @@ namespace Data.DataAccess.Interface.EventModule
         public void UpdateEvent(Event @event);
         public Event GetEvent(string evenId);
         public List<Event> GetEvents();
+        public List<Event> GetUpComingEvents();
+        public void UpdateEventStatus();
     }
 }

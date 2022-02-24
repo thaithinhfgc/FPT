@@ -3,6 +3,7 @@ C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.AssemblyInfo
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.AssemblyInfo.cs
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.csproj.CoreCompileInputs.cache
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.csproj.AssemblyReference.cache
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\appsettings.json
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.exe
@@ -12,6 +13,7 @@ C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.runtimeconfi
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\ref\WebApp.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\WebApp.pdb
+C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Cronos.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Humanizer.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -49,7 +51,6 @@ C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Data.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Service.dll
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Service.pdb
 C:\Users\ACER\source\repos\Solution6\WebApp\bin\Debug\net5.0\Data.pdb
-C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.csproj.AssemblyReference.cache
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\scopedcss\bundle\WebApp.styles.css
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\staticwebassets\WebApp.StaticWebAssets.Manifest.cache
 C:\Users\ACER\source\repos\Solution6\WebApp\obj\Debug\net5.0\WebApp.RazorTargetAssemblyInfo.cache

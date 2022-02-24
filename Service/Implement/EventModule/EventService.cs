@@ -31,9 +31,19 @@ namespace Service.Implement.EventModule
             return eventRepository.GetEvents();
         }
 
+        public List<Event> GetUpComingEvents()
+        {
+            return eventRepository.GetUpComingEvents();
+        }
+
         public void UpdateEvent(Event @event)
         {
             eventRepository.UpdateEvent(@event);
+        }
+
+        public void UpdateEventStatus()
+        {
+            eventRepository.UpdateEventStatus();
         }
     }
 }
