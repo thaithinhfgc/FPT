@@ -13,7 +13,7 @@ namespace Service.Interface.EventModule
         public void PaticipantEvent(EventParticipant eventParticipant);
         public void RemovePaticipant(EventParticipant eventParticipant);
         public EventParticipant GetEventParticipant(string userId, string eventId);
-        public List<EventParticipant> GetEventParticipantByUser(string userId);
+        public List<Event> GetEventParticipantByUser(string userId);
         public List<User> GetEventParticipantByEvent(string eventId);
     }
 }

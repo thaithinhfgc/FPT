@@ -35,10 +35,15 @@ namespace Data.DataAccess.Implement.EventModule
             return users;
         }
 
-        public List<EventParticipant> GetEventParticipantByUser(string userId)
+        public List<Event> GetEventParticipantByUser(string userId)
         {
             var eventParticipants = context.EventParticipants.Where(x => x.PaticipantId.Equals(userId)).ToList();
-            return eventParticipants;
+            var events = new List<Event>();
+            foreach (EventParticipant eventParticipant in eventParticipants)
+            {
+                events.Add(context.Events.FirstOrDefault(x => x.Id.Equals(eventParticipant.EventId)));
+            }
+            return events;
         }
 
         public void PaticipantEvent(EventParticipant eventParticipant)

@@ -100,7 +100,7 @@ namespace WebApp.Controllers
                 Admin = admin,
                 StartDate = input.StartDate,
                 EndDate = input.EndDate,
-                Status = EventStatus.UPCOMMING
+                Status = EventStatus.UPCOMING
             };
 
             eventService.CreateEvent(@event);

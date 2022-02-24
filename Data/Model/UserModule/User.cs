@@ -11,7 +11,8 @@ namespace Data.Model.UserModule
     {
         STUDENT = 1,
         LECTURER = 2,
-        ADMIN = 3
+        ADMIN = 3,
+        BUSINESS = 4,
     }
 
     public enum UserStatus
