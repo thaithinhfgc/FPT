@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.CronJob
+namespace Service.CronJob
 {
     public class UpdateEventStatusJob : CronJobService
     {
@@ -30,7 +30,7 @@ namespace Data.CronJob
 
         public override Task DoWork(CancellationToken cancellationToken)
         {
-            this.eventService.UpdateEventStatus();
+            eventService.UpdateEventStatus();
 
             Console.WriteLine($"{DateTime.Now:hh:mm:ss} Update Event Status cron job is working.");
             return Task.CompletedTask;

@@ -1,5 +1,4 @@
-﻿
-using Data.Model.JobModule;
+﻿using Data.Model.JobModule;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DTO.JobModule
+namespace Data.DTO.JobModule.JobDTO
 {
     public class UpdateJobDTO
     {

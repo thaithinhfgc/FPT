@@ -183,5 +183,23 @@ namespace WebApp.Controllers
             res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Event");
             return new ObjectResult(res.getResponse());
         }
+
+        [HttpGet]
+        [Route("search")]
+        public IActionResult SearchEvent(int pageSize, int pageIndex, string search)
+        {
+            IDictionary<string, object> dataRes = new Dictionary<string, object>();
+            ServerResponse<IDictionary<string, object>> res = new ServerResponse<IDictionary<string, object>>();
+            if (search == null)
+            {
+                search = "";
+            }
+            var (events, total) = eventService.SearchEvent(pageSize, pageIndex, search);
+            dataRes.Add("events", events);
+            dataRes.Add("total", total);
+            res.data = dataRes;
+            return new ObjectResult(res.getResponse());
+        }
+
     }
 }

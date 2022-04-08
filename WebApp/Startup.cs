@@ -1,12 +1,13 @@
 using Data;
-using Data.CronJob;
 using Data.DataAccess.Implement.AuthModule;
 using Data.DataAccess.Implement.BlogModule;
+using Data.DataAccess.Implement.CourseModuel;
 using Data.DataAccess.Implement.EventModule;
 using Data.DataAccess.Implement.JobModule;
 using Data.DataAccess.Implement.UserModule;
 using Data.DataAccess.Interface.AuthModule;
 using Data.DataAccess.Interface.BlogModule;
+using Data.DataAccess.Interface.CourseModule;
 using Data.DataAccess.Interface.EventModule;
 using Data.DataAccess.Interface.JobModule;
 using Data.DataAccess.Interface.UserModule;
@@ -15,7 +16,6 @@ using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,20 +24,21 @@ using Microsoft.IdentityModel.Tokens;
 using Service.CronJob;
 using Service.Implement.AuthModule;
 using Service.Implement.BlogModule;
+using Service.Implement.CourseModule;
 using Service.Implement.EventModule;
 using Service.Implement.JobModule;
+using Service.Implement.UploadFileModule;
 using Service.Implement.UserModule;
 using Service.Interface.AuthService;
 using Service.Interface.BlogModule;
+using Service.Interface.CourseModule;
 using Service.Interface.EventModule;
 using Service.Interface.JobModule;
+using Service.Interface.UploadFileModule;
 using Service.Interface.UserModule;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WebApp
 {
@@ -56,6 +57,8 @@ namespace WebApp
             services.AddDbContext<Context>(options =>
          options.UseSqlServer(Configuration.GetConnectionString("FPTDatabase")));
             services.AddHttpContextAccessor();
+
+            services.AddScoped<IUploadFileService, UploadFileService>();
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IAuthService, AuthService>();
@@ -92,6 +95,15 @@ namespace WebApp
 
             services.AddScoped<IApplyJobRepository, ApplyJobRepository>();
             services.AddScoped<IApplyJobService, ApplyJobService>();
+
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICourseService, CourseService>();
+
+            services.AddScoped<ICourseUnitRepository, CourseUnitRepository>();
+            services.AddScoped<ICourseUnitService, CourseUnitService>();
+
+            services.AddScoped<ICourseMaterialRepository, CourseMaterialRepository>();
+            services.AddScoped<ICourseMaterialService, CourseMaterialService>();
 
             services.AddCronJob<UpdateEventStatusJob>(c =>
             {

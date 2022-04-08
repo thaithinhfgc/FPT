@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Service;
+using Service.Interface.UploadFileModule;
 using Service.Interface.UserModule;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,11 @@ namespace WebApp.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService userService;
-        public UserController(IUserService userService)
+        private readonly IUploadFileService uploadFileService;
+        public UserController(IUserService userService, IUploadFileService uploadFileService)
         {
             this.userService = userService;
+            this.uploadFileService = uploadFileService;
         }
 
 
@@ -66,6 +69,76 @@ namespace WebApp.Controllers
             userService.UpdateCurrentUser(user);
             res.data = user;
             res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Profile");
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("avatar")]
+        public IActionResult UpdateUserAvatar([FromForm] UpdateUserAvatarDTO input)
+        {
+            var res = new ServerResponse<User>();
+            ValidationResult result = new UpdateUserAvatarDTOValidator().Validate(input);
+
+            if (!result.IsValid)
+            {
+                res.mapDetails(result);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            if (!this.uploadFileService.CheckFileSize(input.Avatar, 5))
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.FILE_TOO_LARGE);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            if (!this.uploadFileService.CheckFileExtension(input.Avatar, new string[] { "jpg", "png", "jpeg", "gif", "tiff" }))
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.FILE_WRONG_EXTENSION);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            var avatarUrl = this.uploadFileService.Upload(input.Avatar);
+            var user = userService.GetUserById(userService.GetCurrentUser().Id);
+            user.Avatar = avatarUrl;
+            userService.UpdateCurrentUser(user);
+            res.data = user;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "Avatar");
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("cv")]
+        public IActionResult UploadCV([FromForm] UploadCVDTO input)
+        {
+            var res = new ServerResponse<User>();
+            ValidationResult result = new UploadCVDTOValidator().Validate(input);
+
+            if (!result.IsValid)
+            {
+                res.mapDetails(result);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            if (!this.uploadFileService.CheckFileSize(input.CV, 10))
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.FILE_TOO_LARGE);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            if (!this.uploadFileService.CheckFileExtension(input.CV, new string[] { "jpg", "png", "jpeg", "gif", "tiff", "pdf", "doc", "docx" }))
+            {
+                res.setErrorMessage(CustomValidator.ErrorMessageKey.FILE_WRONG_EXTENSION);
+                return new BadRequestObjectResult(res.getResponse());
+            }
+
+            var CVUrl = this.uploadFileService.Upload(input.CV);
+            var user = userService.GetUserById(userService.GetCurrentUser().Id);
+            user.CV = CVUrl;
+            userService.UpdateCurrentUser(user);
+            res.data = user;
+            res.setMessage(CustomValidator.MessageKey.MESSAGE_UPDATE_SUCCESS, "CV");
             return new ObjectResult(res.getResponse());
         }
 

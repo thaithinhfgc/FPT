@@ -15,5 +15,6 @@ namespace Data.DataAccess.Interface.EventModule
         public List<Event> GetEvents();
         public List<Event> GetUpComingEvents();
         public void UpdateEventStatus();
+        public (List<Event>, int) SearchEvent(int pageSize, int pageIndex, string search);
     }
 }

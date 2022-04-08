@@ -15,5 +15,7 @@ namespace Data.DataAccess.Interface.JobModule
         public void CreateJob(Job job);
         public void UpdateJob(Job job);
         public List<Job> GetJobByBusinessId(string businessId);
+        public (List<Job>, int) SearchJob(int pageSize, int pageIndex, string search);
+
     }
 }

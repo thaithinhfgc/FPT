@@ -25,6 +25,8 @@ namespace Data
             public const string ERROR_INVALID_QUANTITY = "ERROR_INVALID_QUANTITY";
             public const string ERROR_START_DATE = "ERROR_START_DATE";
             public const string ERROR_END_DATE = "ERROR_END_DATE";
+            public static readonly string FILE_TOO_LARGE = "FILE_TOO_LARGE";
+            public static readonly string FILE_WRONG_EXTENSION = "FILE_WRONG_EXTENSION";
 
         }
 
@@ -62,7 +64,8 @@ namespace Data
             AddTranslation("en", ErrorMessageKey.ERROR_INVALID_QUANTITY, "have only");
             AddTranslation("en", ErrorMessageKey.ERROR_START_DATE, "Start Date should be at least tomorow");
             AddTranslation("en", ErrorMessageKey.ERROR_END_DATE, "End Date should be equal or greater than Start Date");
-
+            AddTranslation("en", ErrorMessageKey.FILE_TOO_LARGE, "file is too large");
+            AddTranslation("en", ErrorMessageKey.FILE_WRONG_EXTENSION, "file is wrong extension");
 
             // Success message
             // EN

@@ -70,5 +70,15 @@ namespace Data.DataAccess.Implement.EventModule
             }
             context.SaveChanges();
         }
+
+        public (List<Event>, int) SearchEvent(int pageSize, int pageIndex, string search)
+        {
+            var list = context.Events.Where(x => x.Title.Contains(search)).ToList();
+            var count = list.Count;
+            var pagelist = list.Take((pageIndex + 1) * pageSize).Skip(pageIndex * pageSize).ToList();
+
+
+            return (pagelist, count);
+        }
     }
 }

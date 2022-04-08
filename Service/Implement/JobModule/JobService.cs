@@ -47,5 +47,9 @@ namespace Service.Implement.JobModule
         {
             jobRepository.UpdateJob(job);
         }
+        public (List<Job>, int) SearchJob(int pageSize, int pageIndex, string search)
+        {
+            return jobRepository.SearchJob(pageSize, pageIndex, search);
+        }
     }
 }

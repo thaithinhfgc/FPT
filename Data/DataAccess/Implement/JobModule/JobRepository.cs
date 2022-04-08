@@ -52,5 +52,14 @@ namespace Data.DataAccess.Implement.JobModule
             var jobs = context.Jobs.Where(x => x.BusinessId.Equals(businessId)).ToList();
             return jobs;
         }
+        public (List<Job>, int) SearchJob(int pageSize, int pageIndex, string search)
+        {
+            var list = context.Jobs.Where(x => x.Business.Name.Contains(search) || x.Title.Contains(search)).ToList();
+            var count = list.Count;
+            var pagelist = list.Take((pageIndex + 1) * pageSize).Skip(pageIndex * pageSize).ToList();
+
+
+            return (pagelist, count);
+        }
     }
 }

@@ -185,6 +185,93 @@ namespace Data.Migrations
                     b.ToTable("Votes");
                 });
 
+            modelBuilder.Entity("Data.Model.CourseModule.Course", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("AdminId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Major")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("Data.Model.CourseModule.CourseMaterial", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("CourseUnitId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("File")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseUnitId");
+
+                    b.ToTable("CourseMaterials");
+                });
+
+            modelBuilder.Entity("Data.Model.CourseModule.CourseUnit", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("CourseId")
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseUnits");
+                });
+
             modelBuilder.Entity("Data.Model.EventModule.Event", b =>
                 {
                     b.Property<string>("Id")
@@ -451,6 +538,33 @@ namespace Data.Migrations
                     b.Navigation("Blog");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Data.Model.CourseModule.Course", b =>
+                {
+                    b.HasOne("Data.Model.UserModule.User", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId");
+
+                    b.Navigation("Admin");
+                });
+
+            modelBuilder.Entity("Data.Model.CourseModule.CourseMaterial", b =>
+                {
+                    b.HasOne("Data.Model.CourseModule.CourseUnit", "CourseUnit")
+                        .WithMany()
+                        .HasForeignKey("CourseUnitId");
+
+                    b.Navigation("CourseUnit");
+                });
+
+            modelBuilder.Entity("Data.Model.CourseModule.CourseUnit", b =>
+                {
+                    b.HasOne("Data.Model.CourseModule.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId");
+
+                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("Data.Model.EventModule.Event", b =>

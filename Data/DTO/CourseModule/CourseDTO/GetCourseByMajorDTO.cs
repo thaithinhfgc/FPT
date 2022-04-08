@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DTO.JobModule
+namespace Data.DTO.CourseModule.CourseDTO
 {
-    public class GetJobByMajorDTO
+    public class GetCourseByMajorDTO
     {
         public JobMajor Major { get; set; }
     }
 
-    public class GetJobByMajorDTOValidator : AbstractValidator<GetJobByMajorDTO>
+    public class GetCourseByMajorDTOValidator : AbstractValidator<GetCourseByMajorDTO>
     {
-        public GetJobByMajorDTOValidator()
+        public GetCourseByMajorDTOValidator()
         {
-            RuleFor(x => x.Major).NotEmpty().NotNull();
+            RuleFor(x => x.Major).IsInEnum();
         }
     }
 }

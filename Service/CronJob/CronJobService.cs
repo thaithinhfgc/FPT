@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.CronJob
+namespace Service.CronJob
 {
     public abstract class CronJobService : IHostedService, IDisposable
     {

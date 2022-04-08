@@ -1,4 +1,5 @@
 ﻿using Data.Model.BlogModule;
+using Data.Model.CourseModule;
 using Data.Model.EventModule;
 using Data.Model.JobModule;
 using Data.Model.UserModule;
@@ -30,5 +31,8 @@ namespace Data.Database
         public DbSet<EventParticipant> EventParticipants { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<ApplyJob> ApplyJobs { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseUnit> CourseUnits { get; set; }
+        public DbSet<CourseMaterial> CourseMaterials { get; set; }
     }
 }
