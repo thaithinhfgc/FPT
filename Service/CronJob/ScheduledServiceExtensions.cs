@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Cronos;
-using Data.CronJob;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

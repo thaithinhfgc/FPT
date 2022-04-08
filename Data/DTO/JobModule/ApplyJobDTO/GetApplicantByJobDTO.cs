@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.DTO.JobModule
+namespace Data.DTO.JobModule.ApplyJobDTO
 {
-    public class ApplyJobDTO
+    public class GetApplicantByJobDTO
     {
         public string JobId { get; set; }
     }
-    public class ApplyJobDTOValidator : AbstractValidator<ApplyJobDTO>
+
+    public class GetApplicantByJobDTOValidator : AbstractValidator<GetApplicantByJobDTO>
     {
-        public ApplyJobDTOValidator()
+        public GetApplicantByJobDTOValidator()
         {
             RuleFor(x => x.JobId).NotEmpty().NotNull();
         }

@@ -45,5 +45,9 @@ namespace Service.Implement.EventModule
         {
             eventRepository.UpdateEventStatus();
         }
+        public (List<Event>, int) SearchEvent(int pageSize, int pageIndex, string search)
+        {
+            return eventRepository.SearchEvent(pageSize, pageIndex, search);
+        }
     }
 }

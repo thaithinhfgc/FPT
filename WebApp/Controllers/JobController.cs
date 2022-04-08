@@ -1,5 +1,5 @@
 ﻿using Data;
-using Data.DTO.JobModule;
+using Data.DTO.JobModule.JobDTO;
 using Data.Model.JobModule;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
@@ -165,6 +165,23 @@ namespace WebApp.Controllers
 
             var jobs = jobService.GetJobByBusinessId(input.BusinessId);
             res.data = jobs;
+            return new ObjectResult(res.getResponse());
+        }
+
+        [HttpGet]
+        [Route("search")]
+        public IActionResult SearchJob(int pageSize, int pageIndex, string search)
+        {
+            IDictionary<string, object> dataRes = new Dictionary<string, object>();
+            ServerResponse<IDictionary<string, object>> res = new ServerResponse<IDictionary<string, object>>();
+            if (search == null)
+            {
+                search = "";
+            }
+            var (jobs, total) = jobService.SearchJob(pageSize, pageIndex, search);
+            dataRes.Add("jobs", jobs);
+            dataRes.Add("total", total);
+            res.data = dataRes;
             return new ObjectResult(res.getResponse());
         }
     }

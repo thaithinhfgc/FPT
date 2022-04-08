@@ -1,5 +1,5 @@
 ﻿using Data;
-using Data.DTO.JobModule;
+using Data.DTO.JobModule.ApplyJobDTO;
 using Data.Model.JobModule;
 using Data.Model.UserModule;
 using FluentValidation.Results;
